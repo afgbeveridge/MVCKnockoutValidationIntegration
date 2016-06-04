@@ -1,0 +1,22 @@
+﻿
+@section mainContent {
+    @Html.Partial("_SimpleViewModel")
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $.getJSON("/api/ViewModelServing/WrappedSimpleViewModel", null, function (response) {
+                var obj = ko.mapping.fromJS(response.Model);
+                vmi.decorate({
+                    model: obj,
+                    parsedMetadata: response.ValidationMetadata,
+                    enableLogging: true,
+                    insertedValidatedObservableName: 'validation' 
+                });
+                ko.validation.init({ insertMessages: false });
+                ko.applyBindings(obj, $('#koContainer')[0]);
+            });
+        });
+    </script>
+}

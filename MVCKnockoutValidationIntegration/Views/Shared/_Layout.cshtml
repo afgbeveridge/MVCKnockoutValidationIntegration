@@ -1,0 +1,23 @@
+﻿
+@* Copyright Tony Beveridge 2013-2015. All rights reserved. *@
+@* This source code and any derivations can only be used with the express written permission of the author. *@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/css/bootstrap")
+</head>
+<body>
+        
+    @RenderSection("mainContent", required: true)
+
+    @Scripts.Render("~/bundles/example")
+
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+@section mainContent {
+    @Html.Partial("_SimpleViewModel")
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $.getJSON("/api/ViewModelServing/SimpleViewModel", null, function (response) {
+                var obj = ko.mapping.fromJS(response);
+                vmi.decorateAsync({
+                    typeName: 'MVCKnockoutValidationIntegration.Models.SimpleViewModel',
+                    model: obj,
+                    enableLogging: true,
+                    insertedValidatedObservableName: 'validation',
+                    done: function (validationTree, parsedMetadata) {
+                        ko.validation.init({ insertMessages: false });
+                        ko.applyBindings(obj, $('#koContainer')[0]);
+                    }
+                });
+            });
+
+        });
+    </script>
+}

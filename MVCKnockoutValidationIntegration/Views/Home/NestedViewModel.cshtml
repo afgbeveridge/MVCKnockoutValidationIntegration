@@ -1,0 +1,59 @@
+﻿
+@section mainContent {
+    <div class="container" id="koContainer">
+    <p></p>
+    <div class="row">
+        <div class="col-xs-4">
+            Top level: <input data-bind="textInput: TopLevel" type="text" />
+            <p data-bind="validationMessage: TopLevel"></p>
+        </div>
+    </div>
+    <!-- ko foreach: ChildModelCollection -->
+    <div class="row">
+        <div class="col-xs-3">
+            First: <input data-bind="textInput: $data.FirstName" type="text" />
+            <p data-bind="validationMessage: FirstName"></p>
+        </div>
+        <div class="col-xs-3">
+            Surname: <input data-bind="textInput: $data.Surname" type="text" />
+            <p data-bind="validationMessage: Surname"></p>
+        </div>
+        <div class="col-xs-3">
+            Year of birth: <input data-bind="textInput: $data.YearOfBirth" type="text" />
+            <p data-bind="validationMessage: YearOfBirth"></p>
+        </div>
+        <div class="col-xs-3">
+            Pin: <input data-bind="textInput: $data.Pin" type="text" />
+            <p data-bind="validationMessage: Pin"></p>
+        </div>
+    </div>
+    <!-- /ko -->
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <br />
+            <button class="btn-primary" data-bind="enable: validation.isValid()">Save</button>
+        </div>
+    </div>
+</div>
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $.getJSON("/api/ViewModelServing/NestedViewModel", null, function (response) {
+                var obj = ko.mapping.fromJS(response);
+                vmi.decorateAsync({
+                    typeName: 'MVCKnockoutValidationIntegration.Models.NestedViewModel',
+                    model: obj,
+                    enableLogging: true,
+                    done: function (validationTree, parsedMetadata) {
+                        ko.validation.init({ insertMessages: false, grouping: { deep: true, live: true } });
+                        obj.validation = ko.validatedObservable(validationTree);
+                        ko.applyBindings(obj, $('#koContainer')[0]);
+                    }
+                });
+            });
+
+        });
+    </script>
+}

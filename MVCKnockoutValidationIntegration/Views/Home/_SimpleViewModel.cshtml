@@ -1,0 +1,26 @@
+﻿
+<div class="container">
+    <p></p>
+    <div class="row" id="koContainer">
+        <div class="col-xs-3">
+            First: <input data-bind="textInput: FirstName" type="text" />
+            <p data-bind="validationMessage: FirstName"></p>
+        </div>
+        <div class="col-xs-3">
+            Surname: <input data-bind="textInput: Surname" type="text" />
+            <p data-bind="validationMessage: Surname"></p>
+        </div>
+        <div class="col-xs-3">
+            Year of birth: <input data-bind="textInput: YearOfBirth" type="text" />
+            <p data-bind="validationMessage: YearOfBirth"></p>
+        </div>
+        <div class="col-xs-3">
+            Pin: <input data-bind="textInput: Pin" type="text" placeholder="alpha and 3 digits"/>
+            <p data-bind="validationMessage: Pin"></p>
+        </div>
+        <div class="col-xs-12 text-center">
+            <br />
+            <button class="btn-primary" data-bind="enable: validation.isValid()">Save</button>
+        </div>
+    </div>
+</div>
