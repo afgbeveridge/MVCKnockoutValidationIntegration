@@ -159,6 +159,7 @@
     <Compile Include="Lib\IAttributeTranslator.cs" />
     <Compile Include="Lib\IMetadataControl.cs" />
     <Compile Include="Lib\ITranslationDispatcher.cs" />
+    <Compile Include="Lib\IValidationMetadataGenerator.cs" />
     <Compile Include="Lib\KnockoutValidationAttributeTranslator.cs" />
     <Compile Include="Lib\ValidationMetadataGenerator.cs" />
     <Compile Include="Models\NestedViewModel.cs" />

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MVCKnockoutValidationIntegration.Lib {
 
-    public class ValidationMetadataGenerator {
+    public class ValidationMetadataGenerator : IValidationMetadataGenerator {
 
         public ValidationMetadataGenerator(IMetadataControl control = null, ITranslationDispatcher dispatcher = null) {
             Control = control ?? new DefaultMetadataControl();
