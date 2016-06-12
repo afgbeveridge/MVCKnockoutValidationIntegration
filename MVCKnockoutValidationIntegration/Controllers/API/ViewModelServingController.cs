@@ -3,6 +3,7 @@ using System.Linq;
 using MVCKnockoutValidationIntegration.Models;
 using MVCKnockoutValidationIntegration.Lib;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace MVCKnockoutValidationIntegration.Controllers.API
 {
@@ -29,6 +30,11 @@ namespace MVCKnockoutValidationIntegration.Controllers.API
                                         .ExamineType<SimpleViewModel>()
                                         .Generate()
             };
+        }
+
+        [HttpPost]
+        public IHttpActionResult CheckSimpleViewModel(SimpleViewModel model) {
+            return ModelState.IsValid ? Ok() : (IHttpActionResult) BadRequest();
         }
 
         [HttpGet]

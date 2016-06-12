@@ -8,6 +8,7 @@
         $(document).ready(function () {
             $.getJSON("/api/ViewModelServing/WrappedSimpleViewModel", null, function (response) {
                 var obj = ko.mapping.fromJS(response.Model);
+                addSaveSupport(obj); // All this does is add a test method for when save is clicked
                 vmi.decorate({
                     model: obj,
                     parsedMetadata: response.ValidationMetadata,

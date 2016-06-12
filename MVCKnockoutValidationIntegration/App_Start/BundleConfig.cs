@@ -14,6 +14,10 @@ namespace MVCKnockoutValidationIntegration {
                 "~/Scripts/ValidationMetadataInterpreter.js")
             );
 
+            bundles.Add(new ScriptBundle("~/bundles/testingSupport").Include(
+                "~/Scripts/test-support.js")
+            );
+
             bundles.Add(new StyleBundle("~/css/bootstrap").Include("~/Content/bootstrap.css"));
 
 

@@ -141,6 +141,7 @@
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Scripts\knockout.validation.min.js" />
+    <Content Include="Scripts\test-support.js" />
     <Content Include="Scripts\ValidationMetadataInterpreter.js" />
     <Content Include="Web.config" />
   </ItemGroup>

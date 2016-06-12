@@ -20,7 +20,8 @@
         </div>
         <div class="col-xs-12 text-center">
             <br />
-            <button class="btn-primary" data-bind="enable: validation.isValid()">Save</button>
+            <button class="btn-primary" data-bind="enable: validation.isValid(), click: save">Save</button>
+            <button class="btn-primary" data-bind="click: save">Save, ignoring validation state</button>
         </div>
     </div>
 </div>
